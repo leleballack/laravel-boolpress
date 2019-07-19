@@ -3,14 +3,13 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "HomeController@index")->name("home");
 
+Route::get("blogs/{slug}", "BlogController@show")->name("blogs.show");
 
 
 Route::middleware("auth")->prefix("admin")->namespace("Admin")->name("admin.")->group(function() {
   Route::get('/', 'HomeController@index')->name('home');
-  Route::resource("/blogs", "BlogController");
+  Route::resource("blogs", "BlogController");
 
 });

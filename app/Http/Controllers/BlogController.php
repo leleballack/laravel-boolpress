@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\Topic;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        //
+
     }
 
     public function create()

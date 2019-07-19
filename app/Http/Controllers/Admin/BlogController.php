@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Blog;
+use App\Topic;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return "You're in Index";
+      $blogs = Blog::all(); 
+      $topics = Topic::all();
+      return view("admin.index", compact("blogs", "topics"));
     }
 
     public function create()

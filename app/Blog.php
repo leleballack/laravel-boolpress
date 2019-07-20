@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
-    public function Topic() {
+    public function topic() {
       return $this->belongsTo("App\Topic");
     }
 }

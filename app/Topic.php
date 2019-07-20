@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
-  public function Blog() {
+  public function blogs() {
     return $this->hasMany("App\Blog");
   }
 }

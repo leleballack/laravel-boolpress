@@ -17,10 +17,19 @@ class BlogsTableSeeder extends Seeder
         $faker = Faker::create();
         for ($i=0; $i < 30 ; $i++) {
           $newBlog = new Blog();
-          $newBlog->title = $faker->sentence();
-          $newBlog->content = $faker->text(1500);
-          $newBlog->author = $faker->firstName ." ". $faker->lastName;
-          $newBlog->slug = Str::slug($newBlog->title, '-');
+          // $newBlog->title = $faker->sentence();
+          // $newBlog->content = $faker->text(1500);
+          // $newBlog->author = $faker->firstName ." ". $faker->lastName;
+          // $newBlog->slug = Str::slug($newBlog->title, '-');
+          // $newBlog->save();
+          $title = $faker->sentence();
+          $data = [
+            "title" => $title,
+            "content" => $faker->text(1500),
+            "author" => $faker->firstName ." ". $faker->lastName,
+            "slug" => Str::slug($title, '-')
+          ];
+          $newBlog->fill($data);
           $newBlog->save();
         }
     }

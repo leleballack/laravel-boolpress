@@ -3,7 +3,7 @@
 @section('content')
 <div class="container text-center">
   <h1>All Blog Posts</h1>
-  <a href="#" class="btn btn-success">Add New Post</a>
+  <a href="{{ route("admin.blogs.create") }}" class="btn btn-success">Add New Post</a>
   <table class="table">
     <thead class="text-center">
       <tr>
@@ -32,9 +32,13 @@
             @endif
           <td>{{ $blog->created_at->format('d-m-y') }}</td>
           <td>
-            <a href="#" class="btn btn-primary">Show</a>
-            <a href="#" class="btn btn-warning">Edit</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <a href="{{ route("admin.blogs.show", $blog->id) }}" class="btn btn-primary">Show</a>
+            <a href="{{ route("admin.blogs.edit", $blog->id) }}" class="btn btn-warning">Edit</a>
+            <form class="d-inline" action="{{ route("admin.blogs.destroy", $blog->id) }}" method="post">
+              @method("DELETE")
+              @csrf
+              <input type="submit" class="btn btn-danger" name="" value="Delete">
+            </form>
           </td>
         </tr>
       @endforeach

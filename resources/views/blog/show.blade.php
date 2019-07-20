@@ -8,8 +8,6 @@
     on {{ $blog->created_at->format('d-m-Y') }} <br>
     @if ($blog->topic)
       (<a href="{{ route('blogs.topic', $blog->topic->slug) }}">{{ $blog->topic->name }}</a>)
-     @else
-       -
     @endif
     </em></p>
 </div>

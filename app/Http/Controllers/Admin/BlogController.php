@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Blog;
+use App\Topic;
 
 class BlogController extends Controller
 {
@@ -16,7 +17,8 @@ class BlogController extends Controller
 
     public function create()
     {
-        //
+        $topics = Topic::all();
+        return view ("admin.create", compact("topics"));
     }
 
     public function store(Request $request)

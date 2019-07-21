@@ -40,9 +40,10 @@ class BlogController extends Controller
         return redirect()->route("admin.blogs.index");
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        //
+      $blog = Blog::where("slug", $slug)->first();
+      return view("admin.show", compact("blog"));
     }
 
     public function edit($id)

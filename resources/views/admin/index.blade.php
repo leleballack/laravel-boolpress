@@ -32,9 +32,9 @@
             @endif
           <td>{{ $blog->created_at->format('d-m-y') }}</td>
           <td>
-            <a href="{{ route("admin.blogs.show", $blog->id) }}" class="btn btn-primary">Show</a>
-            <a href="{{ route("admin.blogs.edit", $blog->id) }}" class="btn btn-warning">Edit</a>
-            <form class="d-inline" action="{{ route("admin.blogs.destroy", $blog->id) }}" method="post">
+            <a href="{{ route("admin.blogs.show", $blog->slug) }}" class="btn btn-primary">Show</a>
+            <a href="{{ route("admin.blogs.edit", $blog->slug) }}" class="btn btn-warning">Edit</a>
+            <form class="d-inline" action="{{ route("admin.blogs.destroy", $blog->slug) }}" method="post">
               @method("DELETE")
               @csrf
               <input type="submit" class="btn btn-danger" name="" value="Delete">

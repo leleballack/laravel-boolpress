@@ -39,6 +39,9 @@ class BlogController extends Controller
         $newblog = new Blog();
         $newblog->fill($data);
         $newblog->save();
+
+        $newblog->tags()->sync($data["tags"]);
+
         return redirect()->route("admin.blogs.index");
     }
 

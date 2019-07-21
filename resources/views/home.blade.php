@@ -14,7 +14,7 @@
          @endif
          @if (($blog->tags)->isNotEmpty())
            @foreach ($blog->tags as $tag)
-             {#<a href="{{ route('blogs.topic', $tag->slug) }}">{{ $tag->name }}</a>}
+             {#<a href="{{ route('blogs.tags', $tag->slug) }}">{{ $tag->name }}</a>}
            @endforeach
          @endif
   @empty

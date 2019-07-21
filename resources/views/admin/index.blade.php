@@ -35,7 +35,7 @@
           <td>
             @if (($blog->tags)->isNotEmpty())
               @foreach ($blog->tags as $tag)
-                #<a href="{{ route('blogs.topic', $tag->slug) }}">{{ $tag->name }}</a> @if (!$loop->last) <br> @endif
+                #<a href="{{ route('blogs.tags', $tag->slug) }}">{{ $tag->name }}</a> @if (!$loop->last) <br> @endif
               @endforeach
             @else
               -

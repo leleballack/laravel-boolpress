@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h1 class="text-center">All Blog Posts about: {{ $topic->name }}</h1>
+  <h1 class="text-center">All Blog Posts about: {{ $tags->name }}</h1>
   <ul>
   @forelse ($blogs as $blog)
       <li>

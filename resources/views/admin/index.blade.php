@@ -3,7 +3,7 @@
 @section('content')
 <div class="container text-center">
   <h1>All Blog Posts</h1>
-  <a href="{{ route("admin.blogs.create") }}" class="btn btn-success">Add New Post</a>
+  <a href="{{ route("admin.blogs.create") }}" class="btn btn-success mt-3 mb-3">Add New Post</a>
   <table class="table">
     <thead class="text-center">
       <tr>

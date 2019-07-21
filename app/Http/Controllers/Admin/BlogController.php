@@ -46,17 +46,32 @@ class BlogController extends Controller
       return view("admin.show", compact("blog"));
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $blog = Blog::where("slug", $slug)->first();
+        $topics = Topic::all();
+        return view("admin.edit", compact("blog", "topics"));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+      $validator = $request->validate([
+        "title" => "required|bail|max:255",
+        "author" => "required|max:255",
+        "content" => "required|min:50",
+        "topic_id" => "required"
+      ]);
+      $info = $request->all();
+      $blog = Blog::where("slug", $slug)->first();
+
+      // dd($data);
+
+      $blog->update($info);
+
+      return redirect()->route("admin.blogs.index");
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
         //
     }

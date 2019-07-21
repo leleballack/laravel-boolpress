@@ -63,11 +63,8 @@ class BlogController extends Controller
       ]);
       $info = $request->all();
       $blog = Blog::where("slug", $slug)->first();
-
       // dd($data);
-
       $blog->update($info);
-
       return redirect()->route("admin.blogs.index");
     }
 

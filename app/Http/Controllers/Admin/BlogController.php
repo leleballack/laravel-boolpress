@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Blog;
 use App\Topic;
+use App\Tag;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -19,7 +20,8 @@ class BlogController extends Controller
     public function create()
     {
         $topics = Topic::all();
-        return view ("admin.create", compact("topics"));
+        $tags = Tag::all();
+        return view ("admin.create", compact("topics", "tags"));
     }
 
     public function store(Request $request)

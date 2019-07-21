@@ -12,4 +12,8 @@ class Blog extends Model
     public function topic() {
       return $this->belongsTo("App\Topic");
     }
+
+    public function tags() {
+      return $this->belongsToMany("App\Tag");
+    }
 }

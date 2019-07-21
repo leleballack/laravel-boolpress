@@ -12,6 +12,7 @@
         <th>Author</th>
         <th style="width: 25%">Slug</th>
         <th>Topic</th>
+        <th>Tags</th>
         <th>Created</th>
         <th style="width: 20%">Actions</th>
       </tr>
@@ -30,6 +31,18 @@
              @else
                -
             @endif
+          </td>
+          <td>
+            @if (($blog->tags)->isNotEmpty())
+              @foreach ($blog->tags as $tag)
+                #<a href="{{ route('blogs.topic', $tag->slug) }}">{{ $tag->name }}</a> @if (!$loop->last) <br> @endif
+              @endforeach
+            @else
+              -
+            @endif
+          </td>
+
+
           <td>{{ $blog->created_at->format('d-m-y') }}</td>
           <td>
             <a href="{{ route("admin.blogs.show", $blog->slug) }}" class="btn btn-primary">Show</a>

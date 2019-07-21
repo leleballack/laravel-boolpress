@@ -10,9 +10,12 @@
          - written by {{ $blog->author }},
          on {{ $blog->created_at->format('d-m-Y') }}
          @if ($blog->topic)
-           (<a href="{{ route('blogs.topic', $blog->topic->slug) }}">{{ $blog->topic->name }}</a>)
-          @else
-            (-)
+           (in <a href="{{ route('blogs.topic', $blog->topic->slug) }}">{{ $blog->topic->name }}</a>)
+         @endif
+         @if (($blog->tags)->isNotEmpty())
+           @foreach ($blog->tags as $tag)
+             {#<a href="{{ route('blogs.topic', $tag->slug) }}">{{ $tag->name }}</a>}
+           @endforeach
          @endif
   @empty
     <h2>There are no results</h2>

@@ -73,6 +73,8 @@ class BlogController extends Controller
 
     public function destroy($slug)
     {
-        //
+        $blog = Blog::where("slug", $slug)->first();
+        $blog->delete();
+        return redirect()->route("admin.blogs.index");
     }
 }

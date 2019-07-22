@@ -8,7 +8,7 @@ use App\Blog;
 class HomeController extends Controller
 {
   public function index() {
-    $blogs = Blog::all();
+    $blogs = Blog::paginate(8);
     return view("home", compact("blogs"));
   }
 }

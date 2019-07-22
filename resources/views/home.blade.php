@@ -21,6 +21,7 @@
     <h2>There are no results</h2>
   @endforelse
   </ul>
+  {{ $blogs->links() }}
 </div>
 
 @endsection

@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-      $blogs = Blog::all();
+      $blogs = Blog::paginate(5);
       return view("admin.index", compact("blogs"));
     }
 
@@ -55,7 +55,8 @@ class BlogController extends Controller
     {
         $blog = Blog::where("slug", $slug)->first();
         $topics = Topic::all();
-        return view("admin.edit", compact("blog", "topics"));
+        $tags = Tag::all();
+        return view("admin.edit", compact("blog", "topics", "tags"));
     }
 
     public function update(Request $request, $slug)
@@ -70,6 +71,9 @@ class BlogController extends Controller
       $blog = Blog::where("slug", $slug)->first();
       // dd($data);
       $blog->update($info);
+
+      $blog->tags()->sync($info["tags"]);
+
       return redirect()->route("admin.blogs.index");
     }
 

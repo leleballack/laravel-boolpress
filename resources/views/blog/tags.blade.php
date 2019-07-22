@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  
 <div class="container">
   <h1 class="text-center">All Blog Posts about: {{ $tags->name }}</h1>
   <ul>

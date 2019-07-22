@@ -42,7 +42,6 @@
             @endif
           </td>
 
-
           <td>{{ $blog->created_at->format('d-m-y') }}</td>
           <td>
             <a href="{{ route("admin.blogs.show", $blog->slug) }}" class="btn btn-primary">Show</a>
@@ -57,6 +56,7 @@
       @endforeach
     </tbody>
   </table>
+  
   {{ $blogs->links() }}
 </div>
 
